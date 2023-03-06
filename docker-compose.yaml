@@ -1,0 +1,17 @@
+version: '1.0'
+
+services:
+  ###
+  # Postgres main database
+  postgres:
+    hostname: wishlist
+    container_name: wishlist
+    image: postgres
+    ports:
+      - '5432:5432' # database
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - .data/pgdata:/var/lib/postgresql/data
