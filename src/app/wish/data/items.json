@@ -1,0 +1,52 @@
+[
+  {
+    "id": 3,
+    "name": "Автомобиль",
+    "timestamp": 1643778013,
+    "priority": "medium",
+    "description": null,
+    "price": null,
+    "link": null,
+    "image_ref": "https://versiya.info/uploads/posts/2019-11/1574240465_vazkievobl.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Собакен",
+    "timestamp": 1646519833,
+    "priority": "medium",
+    "description": "Хочу такого милого собакена",
+    "price": 30000,
+    "link": null,
+    "image_ref": "https://demotivation.ru/wp-content/uploads/2020/08/Siba-inu-inogda-sobaka-ulybaetsya.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Котик",
+    "timestamp": 1638972013,
+    "priority": "medium",
+    "description": null,
+    "price": null,
+    "link": null,
+    "image_ref": "https://www.mam4.ru/resize/1280x-/https/www.mam4.ru/media/upload/user/7604/6d/17478da42271207e1d86.jpg?h=Mxo3Zb0KBXasmNFnDhoRbA"
+  },
+  {
+    "id": 6,
+    "name": "Шампунь для волос",
+    "timestamp": 1585836013,
+    "priority": "medium",
+    "description": null,
+    "price": null,
+    "link": null,
+    "image_ref": null
+  },
+  {
+    "id": 7,
+    "name": "Сноуборд",
+    "timestamp": 1701439213,
+    "priority": "medium",
+    "description": "Сноуборд для катания на Бобровом логу, а то надоело брать в аренду! ",
+    "price": 10000,
+    "link": null,
+    "image_ref": "https://elodiebubble.files.wordpress.com/2011/09/03.jpg"
+  }
+]

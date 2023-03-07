@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 type PriorityDto = 'high' | 'medium' | 'low';
 
-/** User entity. */
+/** Item entity. */
 @Entity({
   name: 'items',
 })

@@ -6,6 +6,8 @@ import { Repository } from 'typeorm';
 import { ItemEntity } from 'src/entities';
 import { ItemDto } from './dto/item.dto';
 
+import * as fs from 'fs';
+
 @Injectable()
 export class ItemService {
   constructor(
@@ -43,5 +45,12 @@ export class ItemService {
    */
   public async delete(id: number): Promise<void> {
     await this.wishRepository.delete(id);
+  }
+
+  public async addItemsFromJsonFile() {
+    const path = 'src/app/wish/data/items.json';
+    const fileData = fs.readFileSync(path, 'utf8');
+    const data: ItemDto[] = JSON.parse(fileData);
+    await this.wishRepository.save(data);
   }
 }

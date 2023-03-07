@@ -37,4 +37,9 @@ export class ItemController {
   public async delete(@Param('id') id: number): Promise<void> {
     this.itemService.delete(id);
   }
+
+  @Post('add-users')
+  public async addItemsFromJsonFile() {
+    return this.itemService.addItemsFromJsonFile();
+  }
 }
