@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 // application
-const PORT = Number(process.env.PORT || 3000);
+const PORT = Number(process.env.PORT || 3001);
 
 // postgres
 const POSTGRES_HOST = process.env.POSTGRES_HOST || 'localhost';
