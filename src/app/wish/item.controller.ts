@@ -38,7 +38,7 @@ export class ItemController {
     this.itemService.delete(id);
   }
 
-  @Post('add-users')
+  @Post('add-items')
   public async addItemsFromJsonFile() {
     return this.itemService.addItemsFromJsonFile();
   }
