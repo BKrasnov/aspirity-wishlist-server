@@ -12,6 +12,6 @@
 4. Install postgres database: `docker compose up`
 5. Wait for the Docker container to load from postgres
 6. Run container "wishlist".
-![image](https://user-images.githubusercontent.com/90438833/223335034-3373f24c-04fa-4565-bbf6-0fb32d437c26.png)
-7. Start command: `npm start`
-
+   ![image](https://user-images.githubusercontent.com/90438833/223335034-3373f24c-04fa-4565-bbf6-0fb32d437c26.png)
+7. `npm i`
+8. `npm start`
