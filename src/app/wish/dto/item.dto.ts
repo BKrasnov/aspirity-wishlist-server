@@ -48,10 +48,6 @@ export class ItemDto {
   })
   public readonly price?: number;
 
-  /** Link to wish item. */
-  @IsUrl()
-  public readonly link?: string;
-
   /** Reference to the picture of the wish item. */
   @IsUrl()
   public readonly image_ref?: string;

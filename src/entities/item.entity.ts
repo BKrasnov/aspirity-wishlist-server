@@ -39,12 +39,6 @@ export class ItemEntity {
   })
   public readonly price?: number;
 
-  /** Link to wish item. */
-  @Column({
-    nullable: true,
-  })
-  public readonly link?: string;
-
   /** Reference to the picture of the wish item. */
   @Column({
     nullable: true,
@@ -60,7 +54,6 @@ export class ItemEntity {
       this.priority = this.priority;
       this.description = this.description;
       this.price = this.price;
-      this.link = this.link;
       this.image_ref = this.image_ref;
     }
   }
