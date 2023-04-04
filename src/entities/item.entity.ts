@@ -9,7 +9,7 @@ type PriorityDto = 'high' | 'medium' | 'low';
 export class ItemEntity {
   /** Wish item id. */
   @PrimaryGeneratedColumn()
-  public id: number;
+  public readonly id: number;
 
   /** The name of the wish item. */
   @Column()
