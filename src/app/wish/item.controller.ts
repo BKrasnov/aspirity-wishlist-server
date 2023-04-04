@@ -6,21 +6,28 @@ import {
   Param,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { ItemService } from './item.service';
 import { ItemDto, UpdateItemDto, ItemResponseDto } from './dtos';
+import { PaginationDto, PaginatedResultDto } from '@core/dtos';
 
 @Controller('item')
 export class ItemController {
   constructor(private readonly itemService: ItemService) {}
 
   @Get()
-  public async getAll(): Promise<ItemDto[]> {
-    return this.itemService.findAll();
+  public async findAll(
+    @Query() paginationDto: PaginationDto,
+  ): Promise<PaginatedResultDto<ItemDto>> {
+    return this.itemService.findAll({
+      page: paginationDto.page,
+      limit: paginationDto.limit,
+    });
   }
 
   @Get(':id')
-  public async getById(@Param('id') id: number): Promise<ItemDto> {
+  public async findById(@Param('id') id: number): Promise<ItemDto> {
     return this.itemService.findById(id);
   }
 

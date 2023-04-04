@@ -1,12 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-
 import { Repository, UpdateResult, DeleteResult } from 'typeorm';
-
 import { ItemEntity } from 'src/entities';
-import { ItemDto } from './dtos/item.dto';
-
+import { ItemDto } from './dtos';
 import * as fs from 'fs';
+import { PaginationDto, PaginatedResultDto } from '@core/dtos';
+
+const INITIAL_PAGE = 1;
+const INITIAL_LIMIT = 5;
 
 @Injectable()
 export class ItemService {
@@ -17,9 +18,28 @@ export class ItemService {
 
   /**
    * Find all item.
+   * @param paginationDto Pagination data to get selection of entities.
    */
-  public async findAll(): Promise<ItemDto[]> {
-    return await this.itemRepository.find();
+  public async findAll(
+    paginationDto: PaginationDto,
+  ): Promise<PaginatedResultDto<ItemDto>> {
+    const page = Number(paginationDto.page) || INITIAL_PAGE;
+    const limit = Number(paginationDto.limit) || INITIAL_LIMIT;
+
+    const skippedItems = (page - 1) * limit;
+    const totalCount = await this.itemRepository.count();
+    const items = await this.itemRepository
+      .createQueryBuilder()
+      .offset(skippedItems)
+      .limit(limit)
+      .getMany();
+
+    return {
+      totalCount,
+      page: page,
+      limit: limit,
+      data: items,
+    };
   }
 
   /**
