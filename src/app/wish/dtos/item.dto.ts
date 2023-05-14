@@ -1,3 +1,4 @@
+import { PartialType } from '@nestjs/mapped-types';
 import {
   IsInt,
   IsNotEmpty,
@@ -50,5 +51,7 @@ export class ItemDto {
 
   /** Reference to the picture of the wish item. */
   @IsUrl()
-  public readonly image_ref?: string;
+  public readonly imageRef?: string;
 }
+
+export class UpdateItemDto extends PartialType(ItemDto) {}

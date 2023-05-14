@@ -1,16 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column } from 'typeorm';
+import { AbstractEntity } from './abstract.entity';
 
 type PriorityDto = 'high' | 'medium' | 'low';
 
 /** Item entity. */
-@Entity({
-  name: 'items',
-})
-export class ItemEntity {
-  /** Wish item id. */
-  @PrimaryGeneratedColumn()
-  public id: number;
-
+@Entity({ name: 'items' })
+export class ItemEntity extends AbstractEntity {
   /** The name of the wish item. */
   @Column()
   public readonly name: string;
@@ -43,9 +38,10 @@ export class ItemEntity {
   @Column({
     nullable: true,
   })
-  public readonly image_ref?: string;
+  public readonly imageRef?: string;
 
-  constructor(item: Partial<ItemEntity>) {
+  constructor(item: ItemEntity) {
+    super();
     if (item) {
       Object.assign(this, item);
       this.id = this.id;
@@ -54,7 +50,7 @@ export class ItemEntity {
       this.priority = this.priority;
       this.description = this.description;
       this.price = this.price;
-      this.image_ref = this.image_ref;
+      this.imageRef = this.imageRef;
     }
   }
 }
